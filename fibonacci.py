@@ -1,1 +1,1 @@
-print(f" "Ejercicio de serie de Fibonacci"")
+print("Ejercicio de serie de Fibonacci")
