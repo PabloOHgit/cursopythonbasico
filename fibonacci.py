@@ -7,13 +7,14 @@ num2 = 1
 suma = 0
 
 print("\nLa serie de Fibonacci elegida es la siguiente:\n")
-while(suma < numero):
+while(suma <= numero):
         num1 = num2
         num2 = suma
-        suma = num1 + num2
+        #suma = num1 + num2      
         if(suma == numero):
             print(suma)
             print("\nLa serie ha finalizado")
         else:
             print(suma, end=", ")
+        suma = num1 + num2  
         
