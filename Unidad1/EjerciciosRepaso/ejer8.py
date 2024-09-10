@@ -8,8 +8,8 @@ for i in range(1,11):
     nota = int(input("Introduce una nota: "))
     if nota >= 7:
         notables += 1
-    else:
+    elif nota < 5:
         suspensos += 1
         
-print("Notas mayores o iguales a 7: ",notables)
-print("Suspensos: ",suspensos)
+print(f"Notas mayores o iguales a 7: {notables}")
+print(f"Suspensos: {suspensos}")
