@@ -17,8 +17,8 @@ for libro in biblioteca:
     if libro[2] > 2000:
         libros_2000.append(libro)
 tupla_2000 = tuple(libros_2000)
-for i in len(tupla_2000):
-    print(f"Los libros publicados después del año 2000 son: {tupla_2000[i]}")
+for i in tupla_2000:
+    print(f"Los libros publicados después del año 2000 son: {i}")
     
 #Otro método
 
