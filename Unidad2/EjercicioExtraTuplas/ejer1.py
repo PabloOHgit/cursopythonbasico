@@ -27,11 +27,11 @@ listado_contraseñas = [
 lista_contraseñas_tupla = tuple(listado_contraseñas)
 
 cartelera = [
-    ("Forrest Gump","ficcion",142),
-    ("Joker","drama",132),
-    ("Gladiator II","accion",125),
-    ("Dune","ficcion",166),
-    ("Furiosa","aventuras",138)
+    ["Forrest Gump","ficcion",142],
+    ["Joker","drama",132],
+    ["Gladiator II","accion",125],
+    ["Dune","ficcion",166],
+    ["Furiosa","aventuras",138]
     ]
 usuario = ""
 contraseña = ""
