@@ -1,20 +1,26 @@
-contraseñas_lista = [["user1","pass1"],["user2","pass2"],["admin","admin_pass"]]
-contraseñas_tupla = [("user1","pass1"),("user2","pass2"),("admin","admin_pass")]
 
-usuario = input(f"Introduce tu usuario: ")
-contraseña = input(f"Introduce tu contraseña: ")
+contraseñas = [("user1","pass1"),("user2","pass2"),("admin","admin_pass")]
 
-contraseñas_lista_1 = list(contraseñas_tupla)
-
-for login in contraseñas_lista_1:
-    if login[0] == usuario and login[1] == contraseña:
-        listita=list(login)
-        listita[1] = input("escribe la nueva contraseña: ")
-        tuplita = tuple(listita)
-        contraseñas_lista_1[0] = tuplita
+while True:
+    cambia_pass = False
+    index_tupla = 0
+    usuario = input(f"\nIntroduce tu usuario: ")
+    contraseña = input(f"Introduce tu contraseña: ")
+    for login in contraseñas:
+        if login[0] == usuario and login[1] == contraseña:
+            tupla_lista = list(login)
+            tupla_lista[1] = input("\nEscribe la nueva contraseña: ")
+            tupla_nueva = tuple(tupla_lista)
+            contraseñas[index_tupla] = tupla_nueva
+            cambia_pass = True
+        index_tupla += 1
+    if cambia_pass == True:
+        print("\nLa contraseña ha sido cambiada satisfactoriamente.")
+        break
+    else:
+        salir = input("\nEl usuario/contraseña introducidos no son válidos, prueba de nuevo, o escribe 'salir'.\n").lower()
+    if salir == "salir":
+        print("\nSaliendo...")
+        break
         
- 
-contraseñas_tupla_1 = tuple(contraseñas_lista_1)
-
-print(contraseñas_lista_1)
-print(contraseñas_tupla_1)
+print(contraseñas)
