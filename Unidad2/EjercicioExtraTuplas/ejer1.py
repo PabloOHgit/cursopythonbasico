@@ -128,6 +128,8 @@ if user_normal == True:
                 if salir == "salir":
                     print("\nSaliendo...")
                     break
+        if menu == 4:
+            print("\nHas elegido: '4. Crear lista de películas favoritas'.")
         if menu == "salir":
             print("\nSaliendo...\n")
             break
