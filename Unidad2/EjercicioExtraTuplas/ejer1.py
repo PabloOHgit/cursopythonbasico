@@ -71,7 +71,7 @@ if user_normal == True:
             "\n4. Crear lista de películas favoritas"
             "\n5. Mostrar la lista de películas favoritas")
         menu = input("\nIntroduce la opción que desees (1-5) o escribe 'salir': ").lower()
-        if menu == 1:
+        if menu == "1":
             print("\nHas elegido: '1. Buscar película por título'.")
             titulo_input = input("\nElige la película a buscar por título: ").title()
             while True:                
@@ -88,7 +88,7 @@ if user_normal == True:
                     break
                 if verifica_pelicula == True:
                     break
-        if menu == 2:
+        if menu == "2":
             print("\nHas elegido: '2. Buscar película por género'.")
             genero_input = input("\nElige género para la búsqueda (ficcion,accion,drama,aventuras): ").lower()
             while True:                
@@ -105,7 +105,7 @@ if user_normal == True:
                     break
                 if verifica_pelicula == True:
                     break
-        if menu == 3:
+        if menu == "3":
             print("\nHas elegido: '3. Cambiar contraseña de usuario'.")
             while True:
                 cambia_pass = False
@@ -128,7 +128,7 @@ if user_normal == True:
                 if salir == "salir":
                     print("\nSaliendo...")
                     break
-        if menu == 4:
+        if menu == "4":
             print("\nHas elegido: '4. Crear lista de películas favoritas'.")
         if menu == "salir":
             print("\nSaliendo...\n")
