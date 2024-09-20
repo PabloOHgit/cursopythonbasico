@@ -18,13 +18,11 @@
 # B. Modificar el contenido de la lista de películas.
 # C. Eliminar una película de la lista.
 
-listado_contraseñas = [
+contraseñas = [
     ("user1","pass1"),
     ("user2","pass2"),
     ("admin","admin_pass")
     ]
-
-lista_contraseñas_tupla = tuple(listado_contraseñas)
 
 cartelera = [
     ["Forrest Gump","ficcion",142],
@@ -33,12 +31,13 @@ cartelera = [
     ["Dune","ficcion",166],
     ["Furiosa","aventuras",138]
     ]
+
 usuario = ""
 contraseña = ""
 
-print("------LORETIX------"
+print("\n------LORETIX------\n"
       "\n"
-      "Plataforma de vídeo")
+      "Plataforma de vídeo\n")
 
 user_normal = False
 user_admin = False
@@ -46,21 +45,21 @@ user_admin = False
 while True:
     usuario = input(f"Introduce tu usuario: ")
     contraseña = input(f"Introduce tu contraseña: ")
-    
+    print("\n")
     if usuario == "admin" and contraseña == "admin_pass":
-        print("Es correcto, eres el administrador")
+        print("********** Es correcto, eres el administrador ********** ")
         user_admin = True
         break
     elif usuario == "user1" and contraseña == "pass1":
-        print("Es correcto, eres un usuario normal")
+        print("********** Es correcto, eres un usuario normal ********** ")
         user_normal = True
         break
     elif usuario == "user2" and contraseña == "pass2":
-        print("Es correcto, eres un usuario normal")
+        print("********** Es correcto, eres un usuario normal ********** ")
         user_normal = True
         break
     else:
-        print("Usuario y/o contraseña incorrectas, repita de nuevo")
+        print("Usuario y/o contraseña incorrectas, repita de nuevo\n")
         
 if user_normal == True:
         
@@ -71,7 +70,7 @@ if user_normal == True:
             "\n3. Cambiar contraseña de usuario"
             "\n4. Crear lista de películas favoritas"
             "\n5. Mostrar la lista de películas favoritas")
-        menu = int(input("\nIntroduce la opción que desees (1-5): "))
+        menu = input("\nIntroduce la opción que desees (1-5) o escribe 'salir': ").lower()
         if menu == 1:
             print("\nHas elegido: '1. Buscar película por título'.")
             titulo_input = input("\nElige la película a buscar por título: ").title()
@@ -129,3 +128,6 @@ if user_normal == True:
                 if salir == "salir":
                     print("\nSaliendo...")
                     break
+        if menu == "salir":
+            print("\nSaliendo...\n")
+            break
