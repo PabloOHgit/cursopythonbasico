@@ -15,7 +15,7 @@ while True:
             cambia_pass = True
         index_tupla += 1
     if cambia_pass == True:
-        print("\nLa contraseña ha sido cambiada satisfactoriamente.")
+        print(f"\nLa contraseña ha sido cambiada satisfactoriamente, es la siguiente: '{tupla_nueva[1]}' para el usuario: '{tupla_nueva[0]}'")
         break
     else:
         salir = input("\nEl usuario/contraseña introducidos no son válidos, prueba de nuevo, o escribe 'salir'.\n").lower()
