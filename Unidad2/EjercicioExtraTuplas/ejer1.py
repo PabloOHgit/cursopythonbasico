@@ -110,8 +110,8 @@ if user_normal == True:
                 cambia_pass = False
                 index_tupla = 0
                 # Permite cambiar contraseña de cualquier usuario:
-                        # usuario = input(f"\nIntroduce tu usuario: ")
-                        # contraseña = input(f"Introduce tu contraseña: ")
+                # usuario = input(f"\nIntroduce tu usuario: ")
+                # contraseña = input(f"Introduce tu contraseña: ")
                 for login in contraseñas:
                     if login[0] == usuario and login[1] == contraseña:
                         tupla_lista = list(login)
@@ -124,11 +124,12 @@ if user_normal == True:
                     print("\n************** La contraseña ha sido cambiada satisfactoriamente **************")
                     print(f"\nLa contraseña ha sido cambiada satisfactoriamente, es la siguiente: '{tupla_nueva[1]}' para el usuario: '{tupla_nueva[0]}'")
                     break
-                else:
-                    salir = input("\nEl usuario/contraseña introducidos no son válidos, prueba de nuevo, o escribe 'salir'.\n").lower()
-                if salir == "salir":
-                    print("\nSaliendo...")
-                    break
+                # Los siguientes bloques evalúan si has elegido un usuario y contraseña válidos para cambiar su contraseña, y poder repetir el proceso o Salir del menú en caso contrario: 
+                # else:
+                #     salir = input("\nEl usuario/contraseña introducidos no son válidos, prueba de nuevo, o escribe 'salir'.\n").lower()
+                # if salir == "salir":
+                #     print("\nSaliendo...")
+                #     break
         if menu == "4":
             print("\nHas elegido: '4. Crear lista de películas favoritas'.")
         if menu == "salir":
