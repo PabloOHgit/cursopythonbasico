@@ -61,8 +61,7 @@ while True:
     else:
         print("Usuario y/o contraseña incorrectas, repita de nuevo\n")
         
-if user_normal == True:
-        
+if user_normal == True:        
     while True:
         print("\nMenú usuario normal:"
             "\n1. Buscar película por título"
@@ -110,8 +109,9 @@ if user_normal == True:
             while True:
                 cambia_pass = False
                 index_tupla = 0
-                usuario = input(f"\nIntroduce tu usuario: ")
-                contraseña = input(f"Introduce tu contraseña: ")
+                # Permite cambiar contraseña de cualquier usuario:
+                        # usuario = input(f"\nIntroduce tu usuario: ")
+                        # contraseña = input(f"Introduce tu contraseña: ")
                 for login in contraseñas:
                     if login[0] == usuario and login[1] == contraseña:
                         tupla_lista = list(login)
