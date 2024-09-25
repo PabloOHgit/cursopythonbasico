@@ -7,7 +7,7 @@
 
 # print(sum(desglose))
 
-"""def suma_digitos(numero):
+def suma_digitos(numero):
     while True:
         if numero == 0:            
             break
@@ -17,6 +17,6 @@
         numero = int(input("Introduce un número: "))
             
 numero1 = int(input("Introduce un número para comenzar: "))
-suma_digitos(numero1)"""
+suma_digitos(numero1)
 
 # PENDIENTE HACER CON NUMEROS QUE SE VAN ALMACENANDO Y SUMANDO ENTRE SI HASTA QUE SE INTRODUCE 0
