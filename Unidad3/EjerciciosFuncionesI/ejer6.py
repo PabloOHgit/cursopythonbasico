@@ -1,26 +1,23 @@
 # 6. Crear un programa que le diga al usuario que ingrese un número entero
 # e informar si es primo o no.
 
-"""def num_primo(num):
-    if num % 2 == 0:
-        print("El número introducido NO es primo")
-    else:
-        print("El número introducido es primo")
-        
-numero = int(input("Introduce un número entero: "))
-num_primo(numero)"""
-
-#### OTRO METODO ##########
-
 def num_primo(num):
-    if num % 2 == 0:
+    if num < 2:
         return False
-    else:
-        return True
+    for i in range(2,num): 
+        if num % i == 0:
+            return False
+    return True
         
-numero = int(input("Introduce un número entero: "))
-if num_primo(numero):
-    print("El número introducido es primo")
-else:
-    print("El número introducido NO es primo")
-    
+while True:
+    numero = int(input("\nIntroduce un número entero para calcular si es primo, '0' para SALIR: "))
+    if numero > 0:
+        if num_primo(numero):
+            print("\nEl número introducido es primo")
+        else:
+            print("\nEl número introducido NO es primo")
+    else:
+        break
+
+
+
