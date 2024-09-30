@@ -9,27 +9,32 @@
 # DNI: 11111111H
 # Loreto8111
 
-cadena_nombre = ""
 
-pide_nombre = ""
-while True:
-    if pide_nombre == "":
-        pide_nombre = input("Introduce tu nombre y apellidos: ").title()
-    else:
-        break
+# while True:
+#     if pide_nombre == "":
+#         pide_nombre = input("Introduce tu nombre y apellidos: ").title()
+#     else:
+#         break
+
+# nombre_apellidos = pide_nombre.split(" ")
+# apellido = nombre_apellidos[1]
+# apellido_identificador = [letra for letra in nombre_apellidos[1]]
+# cuenta_apellido = len(apellido_identificador)
+
+# dni = input("Introduce DNI: ")
+# corta_dni = dni[:3]
+
+# identificador = nombre_apellidos[0]+str(cuenta_apellido)+str(corta_dni)
+# print(identificador)
+
+def pedir_nombre():
+    global pide_nombre
+    pide_nombre = ""
+    while True:
+        if pide_nombre == "":
+            pide_nombre = input("Introduce tu nombre y apellidos: ").title()
+        else:
+            break
+        
+pedir_nombre()
 print(pide_nombre)
-
-nombre_apellidos = pide_nombre.split(" ")
-apellido = nombre_apellidos[1]
-apellido_identificador = [letra for letra in nombre_apellidos[1]]
-cuenta_apellido = len(apellido_identificador)
-print(cuenta_apellido)
-print(apellido_identificador)
-print(nombre_apellidos)
-
-dni = input("Introduce DNI: ")
-corta_dni = dni[:3]
-print(corta_dni)
-
-identificador = nombre_apellidos[0]+str(cuenta_apellido)+str(corta_dni)
-print(identificador)
