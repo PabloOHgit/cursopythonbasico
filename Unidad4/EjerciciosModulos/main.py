@@ -5,6 +5,7 @@ while True:
     calculadora.menu()
     opcion = int(input())
     if opcion == 8:
+        print("Saliendo...")
         break
     # num1 = int(input("Elija un número: "))
     # num2 = int(input("Elija otro número: "))
@@ -28,11 +29,14 @@ while True:
                 print(f"DIVISION: {resultado}")    
         else:
             continue
-    elif opcion in range (5,6):
+    elif opcion in range (5,8):
         num1 = int(input("Elija un número: "))
         if opcion == 5:
             resultado = math.factorial(num1)
             print(f"FACTORIAL: {resultado}")
         elif opcion == 6:
-            resultado = math.isqrt(num1)
-            print(f"Raiz cuadrada: {resultado}")
+            resultado = math.sqrt(num1)
+            print(f"RAIZ CUADRADA: {resultado}")
+        elif opcion == 7:
+            resultado = math.sin(num1)
+            print(f"SENO en radianes: {resultado}")

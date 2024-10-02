@@ -16,14 +16,14 @@ def division(a,b):
     return a / b
 
 def menu():
-    print("Elija una opcion: ")
+    print("\nElija una opcion: ")
     print("Opcion 1: Sumar")
     print("Opcion 2: Restar")
     print("Opcion 3: Multiplicar")
     print("Opcion 4: Dividir")
     print("Opcion 5: Factorial")
     print("Opcion 6: Raiz cuadrada")
-    print("Opcion 7: Raiz cuadrada")
+    print("Opcion 7: Seno")
     print("Opcion 8: Salir")    
     
 # while True:
