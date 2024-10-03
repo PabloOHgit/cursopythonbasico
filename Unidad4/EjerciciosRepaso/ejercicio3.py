@@ -19,4 +19,36 @@
 # (Se utiliza _ a la otra de crear la lista, 
 #  porque el contenido no se va a utilizar, es para sustituirlo,
 # sería una variable desechable)
+import random
+
+alumnos = ["Vir","Kike","Pablo","David","Carlos","Manuel","Marta","Elvira","Eva","Cristina","Luis","Alberto"]
+
+matriz_alumnos = []
+# for x in range(3):
+#     fila = []
+#     contador2 = 0
+#     while contador2 < 4:
+#         alumno = random.choice(alumnos)
+#         if alumno not in fila:
+#             fila.append(alumno)
+#             alumnos.remove(alumno)
+#             contador2 += 1
+#             print(fila)
+#     matriz_alumnos.append(fila)
+    
+# METODO SIN ELIMINAR ELEMENTOS
+alumnos_nombrados = [] 
+for x in range(3):
+    fila = []    
+    contador2 = 0
+    while contador2 < 4:
+        alumno = random.choice(alumnos)
+        if alumno not in alumnos_nombrados:
+            fila.append(alumno)
+            alumnos_nombrados.append(alumno)
+            contador2 += 1
+    matriz_alumnos.append(fila)
+
+for alumno in matriz_alumnos:
+    print(alumno)
 
