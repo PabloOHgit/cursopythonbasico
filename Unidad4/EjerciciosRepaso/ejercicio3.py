@@ -23,7 +23,7 @@ import random
 
 alumnos = ["Vir","Kike","Pablo","David","Carlos","Manuel","Marta","Elvira","Eva","Cristina","Luis","Alberto"]
 
-matriz_alumnos = []
+# matriz_alumnos = []
 # for x in range(3):
 #     fila = []
 #     contador2 = 0
@@ -35,8 +35,19 @@ matriz_alumnos = []
 #             contador2 += 1
 #             print(fila)
 #     matriz_alumnos.append(fila)
-    
-# METODO SIN ELIMINAR ELEMENTOS
+
+# METODO CREANDO MATRIZ VACIA Y RELLENANDOLA SIN ELIMINAR ELEMENTOS SIN REPETIR
+# ........DOS METODOS CREAR MATRIZ VACIA:
+# matriz_alumnos = []
+# for _ in range(3):
+#     fila = []
+#     for _ in range(4):
+#         fila.append(None)
+#     matriz_alumnos.append(fila)
+# print(matriz_alumnos)
+
+matriz_alumnos = [[0 for _ in range(4)] for _ in range(3)]
+
 alumnos_nombrados = [] 
 for x in range(3):
     fila = []    
@@ -45,10 +56,26 @@ for x in range(3):
         alumno = random.choice(alumnos)
         if alumno not in alumnos_nombrados:
             fila.append(alumno)
-            alumnos_nombrados.append(alumno)
+            alumnos_nombrados.append(alumno)            
+            matriz_alumnos[x][contador2] = alumno
             contador2 += 1
-    matriz_alumnos.append(fila)
 
 for alumno in matriz_alumnos:
     print(alumno)
+
+# METODO SIN ELIMINAR ELEMENTOS
+# alumnos_nombrados = [] 
+# for x in range(3):
+#     fila = []    
+#     contador2 = 0
+#     while contador2 < 4:
+#         alumno = random.choice(alumnos)
+#         if alumno not in alumnos_nombrados:
+#             fila.append(alumno)
+#             alumnos_nombrados.append(alumno)
+#             contador2 += 1
+#     matriz_alumnos.append(fila)
+
+# for alumno in matriz_alumnos:
+#     print(alumno)
 
