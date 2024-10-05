@@ -37,18 +37,38 @@ tercer_trimestre = ("julio","agosto","septiembre")
 cuarto_trimestre = ("octubre","noviembre","diciembre")
 
 
-def crea_lista_fiestas(periodo):
+def crea_lista_fiestas(primer_trimestre):
     lista_fiestas = []
-    for mes,fiesta in periodo.items():
-        lista_fiestas.append(mes,fiesta)
+    for mes in primer_trimestre:        
+        lista_fiestas.append(fiestas[mes])
     return lista_fiestas
+
+print(crea_lista_fiestas(primer_trimestre))
+
+# print(crea_lista_fiestas(primer_trimestre))
 
 # mes = fiestas["diciembre"]
 
 lista_fiestas = []
-for mes,fiesta in fiestas.items():
-    lista_fiestas.append([mes,fiesta])
+for primer_trimestre,fiesta in fiestas.items():
+    lista_fiestas.append([primer_trimestre,fiesta])
 
-print("diciembre" in lista_fiestas)
+# print("diciembre" in lista_fiestas)
 
 # print(crea_lista_fiestas(fiestas))
+
+# periodo = input("Elige un mes o escribe trimestre para mostrar sus eventos: ").title
+
+# if periodo == "Trimestre":
+#     periodo = input("Elige primero, segundo, tercero o cuarto: ").title
+#     if periodo == "Primero":
+#         periodo = primer_trimestre
+#     elif periodo == "Segundo":
+#         periodo = segundo_trimestre
+#     elif periodo == "Tercero":
+#         periodo = tercer_trimestre
+#     else:
+#         periodo = cuarto_trimestre
+    # crea_lista_fiestas(periodo)
+
+# print(crea_lista_fiestas(periodo))
