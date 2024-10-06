@@ -39,19 +39,34 @@ tercer_trimestre = ("julio","agosto","septiembre")
 cuarto_trimestre = ("octubre","noviembre","diciembre")
 
 def crea_lista_fiestas(periodo):
-    lista_fiestas = []
-    for mes in periodo:        
-        lista_fiestas.append(fiestas[mes])
-    return lista_fiestas
+    for mes in periodo:
+        evento_fiestas = []
+        dia_fiestas = []
+        for dia,evento in fiestas[mes].items():
+            dia_fiestas.append(dia)
+            evento_fiestas.append(evento)
+        print(f"\nLas fiestas de {mes.upper()} son: ")
+        for dia in dia_fiestas:
+            print(f"El dia {dia} hay evento {evento_fiestas[dia_fiestas.index(dia)]}")
+
+def crea_mes_fiestas(periodo):
+    evento_fiestas = []
+    dia_fiestas = []
+    for dia,evento in fiestas[periodo].items():
+        dia_fiestas.append(dia)
+        evento_fiestas.append(evento)
+    print(f"\nLas fiestas de {periodo.upper()} son: ")
+    for dia in dia_fiestas:
+        print(f"El dia {dia} hay evento {evento_fiestas[dia_fiestas.index(dia)]}")
 
 while True:
-    periodo = input("Elige un mes o escribe trimestre para mostrar sus eventos: ").lower()
+    periodo = input("\nElige un mes o escribe trimestre para mostrar sus eventos: ").lower()
     if periodo in fiestas:
-        print(f"Las fiestas de {periodo} son: {fiestas[periodo]}")
+        crea_mes_fiestas(periodo)
         break
     elif periodo == "trimestre":
         while True:
-            periodo = input("Elige primero, segundo, tercero o cuarto: ").lower()
+            periodo = input("\nElige primero, segundo, tercero o cuarto: ").lower()
             if periodo == "primero":
                 periodo = primer_trimestre
                 break
@@ -66,32 +81,8 @@ while True:
                 break
             else:
                 # continue
-                print("Vuelve a intentarlo...")
-        print(f"Las fiestas de {periodo} son: {crea_lista_fiestas(periodo)}")
+                print("\nVuelve a intentarlo...")
+        crea_lista_fiestas(periodo)
         break
     else:
-        print("Prueba de nuevo...")
-
-
-
-
-
-# def crea_lista_fiestas(primer_trimestre):
-#     lista_fiestas = []
-#     for mes in primer_trimestre:        
-#         lista_fiestas.append(fiestas[mes])
-#     return lista_fiestas
-
-# print(crea_lista_fiestas(primer_trimestre))
-
-# print(crea_lista_fiestas(primer_trimestre))
-
-# mes = fiestas["diciembre"]
-
-# lista_fiestas = []
-# for primer_trimestre,fiesta in fiestas.items():
-#     lista_fiestas.append([primer_trimestre,fiesta])
-
-# print("diciembre" in lista_fiestas)
-
-# print(crea_lista_fiestas(fiestas))
+        print("\nPrueba de nuevo...")
