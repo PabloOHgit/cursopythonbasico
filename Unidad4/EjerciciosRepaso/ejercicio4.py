@@ -33,10 +33,17 @@ fiestas = {
     "diciembre":{6:"Día de la Constitución",8:"Día de la Inmaculada Concepción",24:"NocheBuena",25:"Navidad"}
     }
 
-primer_trimestre = ("enero","febrero","marzo")
-segundo_trimestre = ("abril","mayo","junio")
-tercer_trimestre = ("julio","agosto","septiembre")
-cuarto_trimestre = ("octubre","noviembre","diciembre")
+meses = list(fiestas.keys())
+
+primer_trimestre = meses[0:3]
+segundo_trimestre = meses[3:6]
+tercer_trimestre = meses[6:9]
+cuarto_trimestre = meses[9:12]
+
+# primer_trimestre = ("enero","febrero","marzo")
+# segundo_trimestre = ("abril","mayo","junio")
+# tercer_trimestre = ("julio","agosto","septiembre")
+# cuarto_trimestre = ("octubre","noviembre","diciembre")
 
 def crea_lista_fiestas(periodo):
     for mes in periodo:
