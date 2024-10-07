@@ -28,7 +28,7 @@ def crea_pais_random():
 
 def menu(pais_random):
     print("\n***** JUEGO DE ADIVINAR CAPITALES ****")
-    print("\nDispones de 3 intentos...juega bien")
+    print("\nPuedes fallar 3 veces por cada capital que quieras averiguar...juega bien")
     global capital_usuario
     capital_usuario = input(f"\nIntroduce el nombre de la capital para el pais {pais_random}: ")
     return capital_usuario
@@ -55,31 +55,41 @@ def nuevo_pais_capital():
 
 while True:
     print("""\nOpciones:
-          1. Jugar
+          1. Jugar para acertar 5 capitales de países (3 vidas por país) 
           2. Añadir país/capital nueva
           3. Salir del programa
 --Escribe a continuación tu elección...""")
     eleccion = int(input())
     if eleccion == 1:
-        contador = 0
-        pais_random = crea_pais_random()
-        while contador <= 3:    
-            if contador == 0:
-                capital_usuario = menu(pais_random)
-            elif comprueba(capital_usuario,pais_random):
-                print("\nMuy bien has acertado")
-                break
-            elif contador == 1:
-                print(f"Te quedan {3-contador} intentos")
-                capital_usuario = repite(pais_random)
-                comprueba(capital_usuario,pais_random)
-            elif contador == 2:
-                print(f"Te queda {3-contador} intento")
-                capital_usuario = repite(pais_random)
-                comprueba(capital_usuario,pais_random)
+        contador1 = 1
+        while contador1 <= 5:            
+            contador = 0
+            pais_random = crea_pais_random()
+            while contador <= 3:    
+                if contador == 0:
+                    capital_usuario = menu(pais_random)
+                elif comprueba(capital_usuario,pais_random):
+                    print("\nMUY BIEN HAS ACERTADO")
+                    break
+                elif contador == 1:
+                    print(f"Te quedan {3-contador} intentos")
+                    capital_usuario = repite(pais_random)
+                    comprueba(capital_usuario,pais_random)
+                elif contador == 2:
+                    print(f"Te queda {3-contador} intento")
+                    capital_usuario = repite(pais_random)
+                    comprueba(capital_usuario,pais_random)
+                else:
+                    print("Ya no te quedan intentos, has perdido...")
+                    print(f"\nLA CAPITAL DE {pais_random} ES {paises_capitales[pais_random]}")
+                contador += 1
+            if contador1 == 4:
+                print(f"\nPuedes jugar {5-contador1} vez más")
+            elif contador1 == 5:            
+                print(f"\nYa no puedes jugar más")
             else:
-                print("Ya no te quedan intentos, has perdido...")
-            contador += 1
+                print(f"\nPuedes jugar {5-contador1} veces más")
+            contador1 += 1
     elif eleccion == 2:
         nuevo_pais_capital()
     elif eleccion == 3:
