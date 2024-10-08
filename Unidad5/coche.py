@@ -19,20 +19,21 @@ class Coche:
         Coche.num_coches += 1
     
     def __str__(self):
-        return f"El coche es {self.marca} y modelo {self.modelo}"
+        return f"El coche es {self.marca} y modelo {self.modelo}, potencia {self.motor.potencia}"
         
 
 print(Coche.num_coches)
 
 motor1 = Motor(130,1500)
+motor2 = Motor(180,2000)
 
 coche1 = Coche("Audi","Q3","Gris",motor1)
-coche2 = Coche("Audi","Q5","Gris",3)
+coche2 = Coche("Audi","Q5","Gris",motor2)
 print(Coche.num_coches) 
 
 print(coche1)
 
-print(coche1,motor1)
+print(coche2)
 
 
 
