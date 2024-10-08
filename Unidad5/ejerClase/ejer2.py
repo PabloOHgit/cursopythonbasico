@@ -2,7 +2,7 @@
 # ▰ Crear una clase Ordenador.
 # ▰ Declarar una variable estática llamada encendido y asignarle el valor False.
 # ▰ En el constructor, le pasamos como argumentos: procesador, memoria,
-# memoriaRam y sistemaOperativo (valor booleano).
+# Ram y sistemaOperativo (valor booleano).
 # ▰ Crear el método __str__ y que muestre todos los datos.
 # ▻ Tener en cuenta que sistemaOperativo es booleano, realizar un control
 # mediante un if dentro del método. Si tiene sistema operativo que muestre un
@@ -15,20 +15,26 @@
 class Ordenador:
     encendido = False
     
-    def __init__(self,procesador,memoria,memoriaRam,sistemaOperativo):
+    def __init__(self,procesador,memoria,Ram,SO=False):
         self.procesador = procesador
         self.memoria = memoria
-        self.memoriaRam = memoriaRam
-        self.sistemaOperativo = sistemaOperativo
+        self.Ram = Ram
+        self.SO = SO
         
     def __str__(self):
-        if self.sistemaOperativo:
-            return f"El ordenador tiene sistema operativo y {self.procesador},{self.memoria},{self.memoriaRam}"
+        if self.SO:
+            return f"El ordenador tiene sistema operativo y {self.procesador},{self.memoria},{self.Ram}"
         else:
-            return f"El ordenador NO tiene sistema operativo y {self.procesador},{self.memoria},{self.memoriaRam}"
+            return f"El ordenador NO tiene sistema operativo y {self.procesador},{self.memoria},{self.Ram}"
         
 ordenador1 = Ordenador("x8","256 SSD","36G RAM",True)
-ordenador2 = Ordenador("x3","128 SSD","14G RAM",False)
+ordenador2 = Ordenador("x3","128 SSD","14G RAM")
+ordenador3 = Ordenador("x1","1024 HDD","8 RAM",True)
 
-print("\n",ordenador1)
-print("\n",ordenador2)
+ordenadores = [ordenador1,ordenador2,ordenador3]
+
+for ordenador in ordenadores:
+    print(ordenador)
+    
+# print("\n",ordenador1)
+# print("\n",ordenador2)
