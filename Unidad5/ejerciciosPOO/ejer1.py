@@ -10,6 +10,7 @@
 # Tom “El guiri” a las 16:00.
 # e. Tom sigue sin cambiarse de ropa, pero ahora va a probar a la otra
 # discoteca, comprobar si lo dejan pasar
+
 import datetime
 
 class Discoteca:
@@ -51,21 +52,66 @@ discoteca3 = Discoteca("Afters","00:00","08:00")
 # print(discoteca3.compruebaHorario(hora_actual))
 # print(discoteca2.compruebaVestimenta())
 
-def guiri(vestimenta,horario,discoteca):
+def uso_discoteca(vestimenta,horario,discoteca):
     horario_frmt = datetime.datetime.strptime(horario, "%H:%M").time()
     if vestimenta == discoteca.codVestimenta or (vestimenta == True and discoteca.codVestimenta == False):
     # FORMA PARA DECLARAR VESTIMENTA == FALSE y discoteca.codVestimenta == True (lo declaramos asi por defecto)
     # if vestimenta == discoteca.codVestimenta or (not vestimenta and discoteca.codVestimenta):
         if discoteca.compruebaHorario(horario_frmt):
-            print(f"Puede acceder a la discoteca {discoteca.nombre} dentro de horario y vestimenta")
+            return f"Puede acceder a la discoteca {discoteca.nombre} dentro de horario y vestimenta"
         else:
-            print(f"NO puede acceder a la discoteca {discoteca.nombre} fuera de horario")
+            return f"NO puede acceder a la discoteca {discoteca.nombre} fuera de horario"
     else:
-        print(f"NO puede acceder a la discoteca {discoteca.nombre}, por no ir bien vestido")
+        return f"NO puede acceder a la discoteca {discoteca.nombre}, por no ir bien vestido"
 
-guiri(False,"16:00",discoteca1)
-guiri(False,"18:00",discoteca1)
-guiri(True,"16:00",discoteca1)
-guiri(True,"18:00",discoteca1)
-guiri(False,"16:00",discoteca2)
-guiri(False,"01:00",discoteca3)
+# PROBANDO LA FUNCION MANUALMENTE PARA VALIDAR 
+# LOS METODOS DE INSTANCIA DE COMPRUEBA_HORARIO Y COMPRUEBA_VESTIMENTA
+# uso_discoteca(False,"16:00",discoteca1)
+# uso_discoteca(False,"18:00",discoteca1)
+# uso_discoteca(True,"16:00",discoteca1)
+# uso_discoteca(True,"18:00",discoteca1)
+# uso_discoteca(False,"16:00",discoteca2)
+# uso_discoteca(False,"01:00",discoteca3)
+
+vestimenta = False
+horario = "12:00"
+nombre = ""
+
+nombre = input("¿Cómo se llama la persona que quiere entrar a una de las discotecas?: ")
+while True:
+    horario = input("¿A qué hora quiere acceder a la discoteca? (ejemplo 20:30): ")
+    if horario == "":
+        print("No has puesto ninguna hora, repitelo por favor.")
+    else:
+        break
+while True:
+    discoteca = input(f"¿A qué discoteca quiere acceder? {discoteca1.nombre},{discoteca2.nombre} o {discoteca3.nombre} (1,2,3): ")
+    if discoteca == "1":
+        discoteca = discoteca1
+        break
+    elif discoteca == "2":
+        discoteca = discoteca2
+        break
+    elif discoteca == "3":
+        discoteca = discoteca3
+        break
+    else:
+        print("No has elegido una discoteca de las propuestas.")
+while True:
+    ropa = input("¿Va bien vestid@ o de manera informal (responde 'bien' o ' informal'): ")
+    if ropa == "bien":
+        vestimenta = True
+        break
+    elif ropa == "informal":
+        vestimenta = False
+        break
+    else:
+        print("No has respondido correctamente a la pregunta.")
+         
+usodiscoteca = uso_discoteca(vestimenta,horario,discoteca)
+print(f"{nombre} {usodiscoteca}")
+
+    
+        
+
+
