@@ -17,7 +17,7 @@
 # e. Mostrar la información de los cultivos. (nombre y estado de la
 # cosecha)
 
-from datetime import datetime
+import datetime
 
 class Cultivo:
 
@@ -35,8 +35,8 @@ class Cultivo:
         self.estado = "Finalizado"
 
     def calcularDiasCosecha(self,fecha):
-        fcosecha_str = datetime.strptime(self.fcosecha, "%d-%m-%Y")
-        fecha_str = datetime.strptime(fecha, "%d-%m-%Y")
+        fcosecha_str = datetime.datetime.strptime(self.fcosecha, "%d-%m-%Y")
+        fecha_str = datetime.datetime.strptime(fecha, "%d-%m-%Y")
 
         return f"Faltan {(fcosecha_str - fecha_str).days} días para la cosecha de {self.nombre} {self.variedad}."
         # return (fcosecha_str - fecha_str) #SI DEJO ESTO DARA TAMBIEN HORAS Y NO INTERESA, SOLO QUEREMOS DIAS, ES MAS LIMPIO
