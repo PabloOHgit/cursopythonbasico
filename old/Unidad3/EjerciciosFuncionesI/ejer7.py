@@ -10,31 +10,40 @@
 # Loreto8111
 
 
-# while True:
-#     if pide_nombre == "":
-#         pide_nombre = input("Introduce tu nombre y apellidos: ").title()
-#     else:
-#         break
-
-# nombre_apellidos = pide_nombre.split(" ")
-# apellido = nombre_apellidos[1]
-# apellido_identificador = [letra for letra in nombre_apellidos[1]]
-# cuenta_apellido = len(apellido_identificador)
-
-# dni = input("Introduce DNI: ")
-# corta_dni = dni[:3]
-
-# identificador = nombre_apellidos[0]+str(cuenta_apellido)+str(corta_dni)
-# print(identificador)
-
 def pedir_nombre():
-    global pide_nombre
+    # global pide_nombre - NO HACE FALTA GLOBALIZARLA PUES PUEDO LLAMAR A LA FUNCION DENTRO DE LA OTRA OBTENIENDO EL VALOR DE LA VARIABLE
     pide_nombre = ""
     while True:
         if pide_nombre == "":
             pide_nombre = input("Introduce tu nombre y apellidos: ").title()
         else:
             break
-        
-pedir_nombre()
-print(pide_nombre)
+    return pide_nombre
+
+def cuenta_letras(apellido):
+    nombre_apellidos = apellido.split(" ")
+    apellido = nombre_apellidos[1]
+    apellido_identificador = [letra for letra in nombre_apellidos[1]]
+    cuenta_apellido = len(apellido_identificador)
+    nombre_apellido = nombre_apellidos[0]
+
+    return str(cuenta_apellido),nombre_apellido
+
+def introducir_dni():
+    dni = ""
+    while True:
+        if len(dni) < 3:
+            dni = input("Introduce DNI: ")
+        else:
+            break
+    corta_dni = dni[:3]
+    return str(corta_dni)
+            
+
+# DESEMPAQUETO LA TUPLA QUE GENERA LA FUNCION CON EL RETURN DE DOS VARIABLES, EN DOS VARIABLES PARA PODER USARLAS, LAS PONE EN ORDEN
+cuenta_apellido,nombre_apellido = cuenta_letras(pedir_nombre())
+corta_dni = introducir_dni()
+
+identificador = nombre_apellido+cuenta_apellido+corta_dni
+
+print(f"Tu identificador único es: {identificador}, se compone de nombre: {nombre_apellido}, la cantidad de letras del primer apellido: {cuenta_apellido} y de los primeros 3 dígitos de tu DNI: {corta_dni}")
