@@ -66,15 +66,14 @@ def login():
 
 def menu_normal():
     global menu
-    while True:
-        print("\nMenú usuario normal:"
-            "\n1. Buscar película por título"
-            "\n2. Buscar película por género"
-            "\n3. Cambiar contraseña de usuario"
-            "\n4. Crear lista de películas favoritas"
-            "\n5. Mostrar la lista de películas favoritas")
-        menu = input("\nIntroduce la opción que desees (1-5) o escribe 'salir': ").lower()
-        return menu
+    print("\nMenú usuario normal:"
+        "\n1. Buscar película por título"
+        "\n2. Buscar película por género"
+        "\n3. Cambiar contraseña de usuario"
+        "\n4. Crear lista de películas favoritas"
+        "\n5. Mostrar la lista de películas favoritas")
+    menu = input("\nIntroduce la opción que desees (1-5) o escribe 'salir': ").lower()
+    return menu
 
 login()
 if user_normal == True:        
