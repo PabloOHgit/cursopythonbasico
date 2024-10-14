@@ -21,7 +21,7 @@
 contraseñas = [
     ("user1","pass1"),
     ("user2","pass2"),
-    ("admin","admin_pass")
+    ("admin","admin")
     ]
 
 cartelera = [
@@ -46,7 +46,7 @@ while True:
     usuario = input(f"Introduce tu usuario: ")
     contraseña = input(f"Introduce tu contraseña: ")
     print("\n")
-    if usuario == "admin" and contraseña == "admin_pass":
+    if usuario == "admin" and contraseña == "admin":
         print("********** Es correcto, eres el administrador ********** ")
         user_admin = True
         break
@@ -87,7 +87,7 @@ if user_normal == True:
                     break
                 if verifica_pelicula == True:
                     break
-        if menu == "2":
+        elif menu == "2":
             print("\nHas elegido: '2. Buscar película por género'.")
             genero_input = input("\nElige género para la búsqueda (ficcion,accion,drama,aventuras): ").lower()
             while True:                
@@ -104,7 +104,7 @@ if user_normal == True:
                     break
                 if verifica_pelicula == True:
                     break
-        if menu == "3":
+        elif menu == "3":
             print("\nHas elegido: '3. Cambiar contraseña de usuario'.")
             while True:
                 cambia_pass = False
@@ -130,8 +130,53 @@ if user_normal == True:
                 # if salir == "salir":
                 #     print("\nSaliendo...")
                 #     break
-        if menu == "4":
+        elif menu == "4":
+            lista_favoritas = []
             print("\nHas elegido: '4. Crear lista de películas favoritas'.")
+            for pelicula in cartelera:
+                print(f"Quieres que '{pelicula[0]}' sea favorita? Escribe 'Si' o 'No': ")
+                respuesta = input().capitalize()
+                if respuesta == "Si":
+                    lista_favoritas.append(pelicula)
+                else:
+                    continue            
+        elif menu == "5":
+            print(f"Películas favoritas:")
+            if lista_favoritas == []:
+                print("No hay ninguna película favorita")
+            else:                
+                for pelicula in lista_favoritas:
+                    print(f"Título '{pelicula[0]}', género '{pelicula[1]}', duración {pelicula[2]} minutos")
+        if menu == "salir":
+            print("\nSaliendo...\n")
+            break
+# Administrador:
+# A. Agregar una nueva película.
+# B. Modificar el contenido de la lista de películas.
+# C. Eliminar una película de la lista.
+elif user_admin == True:
+    while True:
+        print("\nMenú usuario Administrador:"
+            "\n1. Agregar una nueva película"
+            "\n2. Modificar el contenido de la lista de películas"
+            "\n3. Eliminar una película de la lista")
+        menu = input("\nIntroduce la opción que desees (1-3) o escribe 'salir': ").lower()
+        if menu == "1":
+            print("\nHas elegido: '1. Agregar una nueva película'.")
+            while True:
+                titulo_input = input("\nIntroduce el nombre de la película: ").title()
+                if titulo_input == "Salir": 
+                    break                
+                titulos = [pelicula[0] for pelicula in cartelera]            
+                if titulo_input not in titulos:
+                    genero_input = input("\nIntroduce el género de la película: ").lower()
+                    duracion_input = input("\nIntroduce la duración de la película: ")
+                    pelicula_nueva = [titulo_input,genero_input,duracion_input]
+                    cartelera.append(pelicula_nueva)
+                    break                    
+                else:
+                    print("La película está repetida, prueba de nuevo o escribe 'salir': ")                
+            print(cartelera)
         if menu == "salir":
             print("\nSaliendo...\n")
             break
