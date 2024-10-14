@@ -141,7 +141,7 @@ if user_normal == True:
                 else:
                     continue            
         elif menu == "5":
-            print(f"Películas favoritas:")
+            print(f"\n5. Películas favoritas:")
             if lista_favoritas == []:
                 print("No hay ninguna película favorita")
             else:                
@@ -162,7 +162,7 @@ elif user_admin == True:
             "\n3. Eliminar una película de la lista")
         menu = input("\nIntroduce la opción que desees (1-3) o escribe 'salir': ").lower()
         if menu == "1":
-            print("\nHas elegido: '1. Agregar una nueva película'.")
+            print("\nHas elegido: '1. Agregar una nueva película'")
             while True:
                 titulo_input = input("\nIntroduce el nombre de la película: ").title()
                 if titulo_input == "Salir": 
@@ -175,8 +175,46 @@ elif user_admin == True:
                     cartelera.append(pelicula_nueva)
                     break                    
                 else:
-                    print("La película está repetida, prueba de nuevo o escribe 'salir': ")                
-            print(cartelera)
+                    print("\nLa película está repetida, prueba de nuevo o escribe 'salir': ")
+            print(f"\nPelícula agregada. Título '{pelicula_nueva[0]}', género '{pelicula_nueva[1]}', duración {pelicula_nueva[2]} minutos")
+            # print(cartelera)
+        if menu == "2":
+            print("\nHas elegido: '2. Modificar el contenido de la lista de películas'")
+            while True:
+                titulo_input = input("\nIntroduce el nombre de la película que quieres modificar: ").title()
+                if titulo_input == "Salir": 
+                    break                
+                titulos = [pelicula[0] for pelicula in cartelera]            
+                if titulo_input in titulos:
+                    for pelicula in cartelera :
+                        if pelicula[0] == titulo_input:
+                            pelicula[0] = input("Modifica el título: ").title()
+                            pelicula[1] = input("Modifica el género: ").lower()
+                            pelicula[2] = input("Modifica la duración: ")
+                            print(f"\nPelícula modificada. Título '{pelicula[0]}', género '{pelicula[1]}', duración {pelicula[2]} minutos")
+                    break
+                else:
+                    print("\nLa película que quieres modificar no existe, prueba de nuevo o escribe 'salir': ")            
+            # print(cartelera)
+        if menu == "3":
+            print("\nHas elegido: '3. Eliminar una película de la lista'")
+            while True:
+                titulo_input = input("\nIntroduce el nombre de la película que quieres eliminar: ").title()
+                if titulo_input == "Salir": 
+                    break                
+                titulos = [pelicula[0] for pelicula in cartelera]            
+                if titulo_input in titulos:
+                    for pelicula in cartelera :
+                        if pelicula[0] == titulo_input:
+                            titulo = pelicula[0]
+                            genero = pelicula[1]
+                            duracion = pelicula[2]
+                            cartelera.remove(pelicula)
+                            print(f"\nPelícula eliminada, título '{titulo}', género '{genero}', duración {duracion} minutos")
+                    break
+                else:
+                    print("\nLa película que quieres eliminar no existe, prueba de nuevo o escribe 'salir': ")            
+            # print(cartelera)
         if menu == "salir":
             print("\nSaliendo...\n")
             break
